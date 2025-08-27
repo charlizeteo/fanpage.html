@@ -1,0 +1,691 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Justin Bieber - Official Fan Page</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background: rgba(0, 0, 0, 0.9);
+            color: white;
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s ease;
+            padding: 0.5rem;
+        }
+
+        .nav-links a:hover {
+            color: #4ecdc4;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800"><rect fill="%23667eea" width="1200" height="800"/><circle fill="%23764ba2" cx="300" cy="200" r="150" opacity="0.5"/><circle fill="%23ff6b6b" cx="900" cy="400" r="100" opacity="0.3"/><circle fill="%234ecdc4" cx="600" cy="600" r="80" opacity="0.4"/></svg>');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            margin-top: 60px;
+        }
+
+        .hero-content h1 {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            animation: fadeInUp 1s ease;
+        }
+
+        .hero-content p {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            animation: fadeInUp 1s ease 0.5s both;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 12px 30px;
+            background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            transition: transform 0.3s ease;
+            animation: fadeInUp 1s ease 1s both;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+        }
+
+        /* Sections */
+        section {
+            padding: 5rem 0;
+            margin: 2rem 0;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+        }
+
+        h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: #333;
+        }
+
+        /* Biography - Updated styles */
+        .bio-content {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 3rem;
+            align-items: start;
+        }
+
+        .bio-image {
+            width: 100%;
+            height: 400px;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2rem;
+        }
+
+        .bio-info {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .quick-facts {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .fact-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 1.5rem;
+            border-radius: 15px;
+            text-align: center;
+            transform: translateY(0);
+            transition: transform 0.3s ease;
+        }
+
+        .fact-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .fact-number {
+            font-size: 2rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+
+        .fact-label {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+
+        .bio-highlights {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .highlight-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1rem;
+            background: rgba(102, 126, 234, 0.1);
+            border-radius: 10px;
+            border-left: 4px solid #667eea;
+        }
+
+        .highlight-icon {
+            font-size: 1.5rem;
+            min-width: 40px;
+            text-align: center;
+        }
+
+        .highlight-text {
+            flex: 1;
+        }
+
+        .highlight-text h4 {
+            margin-bottom: 0.3rem;
+            color: #667eea;
+        }
+
+        .highlight-text p {
+            font-size: 0.9rem;
+            margin: 0;
+        }
+
+        /* Discography */
+        .album-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .album-card {
+            background: white;
+            border-radius: 15px;
+            padding: 1.5rem;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+            cursor: pointer;
+        }
+
+        .album-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .album-cover {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+            border-radius: 10px;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+        }
+
+        .album-title {
+            font-size: 1.2rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+
+        .album-year {
+            color: #666;
+        }
+
+        /* Gallery */
+        .photo-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+        }
+
+        .gallery-item {
+            height: 250px;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .gallery-item:hover {
+            transform: scale(1.05);
+        }
+
+        /* Fan Messages */
+        .fan-messages {
+            background: #f8f9fa;
+            padding: 2rem;
+            border-radius: 15px;
+            margin-top: 2rem;
+        }
+
+        .message-form {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .message-form input, .message-form textarea {
+            padding: 1rem;
+            border: 2px solid #ddd;
+            border-radius: 10px;
+            font-family: inherit;
+        }
+
+        .message-form button {
+            padding: 1rem;
+            background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+            color: white;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: transform 0.3s ease;
+        }
+
+        .message-form button:hover {
+            transform: translateY(-2px);
+        }
+
+        .messages-display {
+            margin-top: 2rem;
+        }
+
+        .fan-message {
+            background: white;
+            padding: 1rem;
+            border-radius: 10px;
+            margin-bottom: 1rem;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .message-author {
+            font-weight: bold;
+            color: #667eea;
+        }
+
+        /* Footer */
+        footer {
+            background: rgba(0, 0, 0, 0.9);
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+            margin-top: 3rem;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Mobile Responsiveness */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero-content p {
+                font-size: 1.2rem;
+            }
+
+            .bio-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .quick-facts {
+                grid-template-columns: 1fr;
+            }
+
+            h2 {
+                font-size: 2rem;
+            }
+        }
+
+        /* Scroll animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="container">
+            <div class="logo">JB Fan Zone</div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#bio">Biography</a></li>
+                <li><a href="#discography">Music</a></li>
+                <li><a href="#gallery">Gallery</a></li>
+                <li><a href="#fan-zone">Fan Zone</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="home" class="hero">
+            <div class="hero-content">
+                <h1>Justin Bieber</h1>
+                <p>Pop Sensation • Global Icon • Musical Genius</p>
+                <a href="#bio" class="cta-button">Discover More</a>
+            </div>
+        </section>
+
+        <div class="container">
+            <section id="bio" class="fade-in">
+                <h2>Biography</h2>
+                <div class="bio-content">
+                    <div class="bio-image">
+                        <img src="justin3.jpg" width ="450">
+                    </div>
+                    <div class="bio-info">
+                        <div class="quick-facts">
+                            <div class="fact-card">
+                                <div class="fact-number">150M+</div>
+                                <div class="fact-label">Records Sold</div>
+                            </div>
+                            <div class="fact-card">
+                                <div class="fact-number">2009</div>
+                                <div class="fact-label">Career Started</div>
+                            </div>
+                            <div class="fact-card">
+                                <div class="fact-number">13</div>
+                                <div class="fact-label">Age Discovered</div>
+                            </div>
+                            <div class="fact-card">
+                                <div class="fact-number">Mar 1, 1994</div>
+                                <div class="fact-label">Born</div>
+                            </div>
+                        </div>
+                        
+                        <div class="bio-highlights">
+                            <div class="highlight-item">
+                                <div class="highlight-icon">🎬</div>
+                                <div class="highlight-text">
+                                    <h4>YouTube Discovery</h4>
+                                    <p>Found on YouTube at age 13, became global sensation overnight</p>
+                                </div>
+                            </div>
+                            
+                            <div class="highlight-item">
+                                <div class="highlight-icon">🎵</div>
+                                <div class="highlight-text">
+                                    <h4>Musical Evolution</h4>
+                                    <p>Transformed from teen pop to mature R&B and electronic sounds</p>
+                                </div>
+                            </div>
+                            
+                            <div class="highlight-item">
+                                <div class="highlight-icon">🌍</div>
+                                <div class="highlight-text">
+                                    <h4>Global Impact</h4>
+                                    <p>Multi-platinum artist with fans across every continent</p>
+                                </div>
+                            </div>
+                            
+                            <div class="highlight-item">
+                                <div class="highlight-icon">❤️</div>
+                                <div class="highlight-text">
+                                    <h4>Philanthropy</h4>
+                                    <p>Active supporter of various charitable causes and social issues</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="discography" class="fade-in">
+                <h2>Discography</h2>
+                <div class="album-grid">
+                    <div class="album-card" onclick="playAlbum('My World 2.0')">
+                        <div class="album-cover"><img src="justin3.jpg" width="200"></div>
+                        <div class="album-title">My World 2.0</div>
+                        <div class="album-year">2010</div>
+                    </div>
+                    <div class="album-card" onclick="playAlbum('Believe')">
+                        <div class="album-cover">Believe</div>
+                        <div class="album-title">Believe</div>
+                        <div class="album-year">2012</div>
+                    </div>
+                    <div class="album-card" onclick="playAlbum('Purpose')">
+                        <div class="album-cover">Purpose</div>
+                        <div class="album-title">Purpose</div>
+                        <div class="album-year">2015</div>
+                    </div>
+                    <div class="album-card" onclick="playAlbum('Changes')">
+                        <div class="album-cover">Changes</div>
+                        <div class="album-title">Changes</div>
+                        <div class="album-year">2020</div>
+                    </div>
+                    <div class="album-card" onclick="playAlbum('Justice')">
+                        <div class="album-cover">Justice</div>
+                        <div class="album-title">Justice</div>
+                        <div class="album-year">2021</div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="gallery" class="fade-in">
+                <h2>Photo Gallery</h2>
+                <div class="photo-gallery">
+                    <div class="gallery-item" onclick="openPhoto('Concert Photo 1')">Concert Shot 1</div>
+                    <div class="gallery-item" onclick="openPhoto('Studio Photo')">Studio Session</div>
+                    <div class="gallery-item" onclick="openPhoto('Red Carpet')">Red Carpet</div>
+                    <div class="gallery-item" onclick="openPhoto('Behind Scenes')">Behind the Scenes</div>
+                    <div class="gallery-item" onclick="openPhoto('Concert Photo 2')">Concert Shot 2</div>
+                    <div class="gallery-item" onclick="openPhoto('Candid Shot')">Candid Moment</div>
+                </div>
+            </section>
+
+            <section id="fan-zone" class="fade-in">
+                <h2>Fan Zone</h2>
+                <div class="fan-messages">
+                    <h3 style="text-align: center; margin-bottom: 2rem;">Share Your Message</h3>
+                    <form class="message-form" id="fanMessageForm">
+                        <input type="text" id="fanName" placeholder="Your Name" required>
+                        <textarea id="fanMessage" placeholder="Your message to Justin..." rows="4" required></textarea>
+                        <button type="submit">Send Message</button>
+                    </form>
+                    
+                    <div class="messages-display" id="messagesDisplay">
+                        <div class="fan-message">
+                            <div class="message-author">Sarah from Canada</div>
+                            <div>"Justin, your music has been with me through every milestone in my life. Thank you for being an inspiration!"</div>
+                        </div>
+                        <div class="fan-message">
+                            <div class="message-author">Miguel from Brazil</div>
+                            <div>"Purpose album changed my life. Your growth as an artist is incredible to witness!"</div>
+                        </div>
+                        <div class="fan-message">
+                            <div class="message-author">Emma from UK</div>
+                            <div>"Been a Belieber since day one! Your music brings so much joy to the world 💜"</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Justin Bieber Fan Page. Made with ❤️ by fans, for fans.</p>
+            <p>This is an unofficial fan page created for entertainment purposes.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                target.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            });
+        });
+
+        // Scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        // Observe all fade-in elements
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Album interaction
+        function playAlbum(albumName) {
+            alert(`Now playing: ${albumName}! 🎵\n\n(In a real implementation, this would open your music streaming service)`);
+        }
+
+        // Gallery interaction
+        function openPhoto(photoName) {
+            alert(`Viewing: ${photoName} 📸\n\n(In a real implementation, this would open a photo lightbox)`);
+        }
+
+        // Fan message form
+        document.getElementById('fanMessageForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const name = document.getElementById('fanName').value;
+            const message = document.getElementById('fanMessage').value;
+            
+            if (name && message) {
+                addFanMessage(name, message);
+                
+                // Clear form
+                document.getElementById('fanName').value = '';
+                document.getElementById('fanMessage').value = '';
+                
+                alert('Your message has been added! 💜');
+            }
+        });
+
+        function addFanMessage(name, message) {
+            const messagesDisplay = document.getElementById('messagesDisplay');
+            
+            const messageDiv = document.createElement('div');
+            messageDiv.className = 'fan-message';
+            messageDiv.innerHTML = `
+                <div class="message-author">${name}</div>
+                <div>"${message}"</div>
+            `;
+            
+            // Insert at the beginning
+            messagesDisplay.insertBefore(messageDiv, messagesDisplay.firstChild);
+        }
+
+        // Add some interactive elements
+        document.addEventListener('DOMContentLoaded', function() {
+            // Add click effects to album cards
+            document.querySelectorAll('.album-card').forEach(card => {
+                card.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateY(-10px) scale(1.02)';
+                });
+                
+                card.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateY(0) scale(1)';
+                });
+            });
+
+            // Add parallax effect to hero section
+            window.addEventListener('scroll', function() {
+                const scrolled = window.pageYOffset;
+                const hero = document.querySelector('.hero');
+                if (hero) {
+                    hero.style.transform = `translateY(${scrolled * 0.5}px)`;
+                }
+            });
+        });
+
+        // Easter egg - Konami code
+        let konamiCode = [];
+        const konamiSequence = [38, 38, 40, 40, 37, 39, 37, 39, 66, 65]; // ↑↑↓↓←→←→BA
+
+        document.addEventListener('keydown', function(e) {
+            konamiCode.push(e.keyCode);
+            if (konamiCode.length > konamiSequence.length) {
+                konamiCode.shift();
+            }
+            
+            if (konamiCode.join(',') === konamiSequence.join(',')) {
+                document.body.style.filter = 'hue-rotate(180deg)';
+                setTimeout(() => {
+                    document.body.style.filter = 'none';
+                    alert('🎵 "Baby, baby, baby, oh!" - Easter egg activated! 🎵');
+                }, 2000);
+                konamiCode = [];
+            }
+        });
+    </script>
+</body>
+</html>
